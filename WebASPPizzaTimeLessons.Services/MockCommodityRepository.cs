@@ -42,10 +42,5 @@ namespace WebASPPizzaTimeLessons.Services
         {
             return _commodityList;
         }
-
-        //public IEnumerable<Commodity> GetAllCommodityes()
-        //{
-        //    throw new System.NotImplementedException();
-        //}
     }
 }
