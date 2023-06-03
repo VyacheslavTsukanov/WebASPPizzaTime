@@ -8,7 +8,7 @@ namespace WebASPPizzaTimeLessons.Services
         //IEnumerable<Commodity> Search(string searchTerm);
 
         IEnumerable<Commodity> GetAllCommodity();
-        //Commodity GetCommodity(int id);
+        Commodity GetCommodity(int id);
         //Commodity Update(Commodity updateEmployee);
         //Commodity Add(Commodity newEmployee);
         //Commodity Delete(int id);

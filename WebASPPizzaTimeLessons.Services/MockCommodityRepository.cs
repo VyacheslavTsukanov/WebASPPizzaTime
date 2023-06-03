@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using WebASPPizzaTimeLessons.Models;
 
 namespace WebASPPizzaTimeLessons.Services
@@ -41,6 +42,11 @@ namespace WebASPPizzaTimeLessons.Services
         public IEnumerable<Commodity> GetAllCommodity()
         {
             return _commodityList;
+        }
+
+        public Commodity GetCommodity(int id)
+        {
+            return _commodityList.FirstOrDefault(x => x.Id == id);
         }
     }
 }
