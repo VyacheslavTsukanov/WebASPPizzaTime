@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33328.57
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebASPPizzaTime", "WebASPPizzaTime\WebASPPizzaTime.csproj", "{8F24AB7E-7D63-49A1-89BE-98235DD3AC13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebASPPizzaTime", "WebASPPizzaTime\WebASPPizzaTime.csproj", "{8F24AB7E-7D63-49A1-89BE-98235DD3AC13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebASPPizzaTimeLessons.Models", "WebASPPizzaTimeLessons.Models\WebASPPizzaTimeLessons.Models.csproj", "{41ADE898-9C48-439F-936E-001740DDFE7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebASPPizzaTimeLessons.Services", "WebASPPizzaTimeLessons.Services\WebASPPizzaTimeLessons.Services.csproj", "{9CB1A691-D8FF-4F56-A3B2-752B0459C482}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8F24AB7E-7D63-49A1-89BE-98235DD3AC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F24AB7E-7D63-49A1-89BE-98235DD3AC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F24AB7E-7D63-49A1-89BE-98235DD3AC13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41ADE898-9C48-439F-936E-001740DDFE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41ADE898-9C48-439F-936E-001740DDFE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41ADE898-9C48-439F-936E-001740DDFE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41ADE898-9C48-439F-936E-001740DDFE7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB1A691-D8FF-4F56-A3B2-752B0459C482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB1A691-D8FF-4F56-A3B2-752B0459C482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB1A691-D8FF-4F56-A3B2-752B0459C482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB1A691-D8FF-4F56-A3B2-752B0459C482}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
