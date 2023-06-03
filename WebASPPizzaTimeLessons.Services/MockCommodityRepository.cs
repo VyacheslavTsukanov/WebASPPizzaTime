@@ -13,27 +13,27 @@ namespace WebASPPizzaTimeLessons.Services
             {
                 new Commodity()
                 {
-                    Id = 0, Name = "Mark", Email = "mark@example.com", PhotoPath = "avatar2.png", Department = Dept.PizzaMafia
+                    Id = 0, Name = "Гавайская", Email = "mark@example.com", PhotoPath = "avatar2.png", Department = Dept.PizzaMafia
                 },
                 new Commodity()
                 {
-                    Id = 1, Name = "Slava", Email = "slava@example.com", PhotoPath = "avatar2.png", Department = Dept.HelloPizza
+                    Id = 1, Name = "Маргарита", Email = "slava@example.com", PhotoPath = "avatar3.png", Department = Dept.HelloPizza
                 },
                 new Commodity()
                 {
-                    Id = 2, Name = "Stiven", Email = "stiven@example.com", PhotoPath = "avatar2.png", Department = Dept.HelloPizza
+                    Id = 2, Name = "Гавайская", Email = "stiven@example.com", PhotoPath = "avatar3.png", Department = Dept.HelloPizza
                 },
                  new Commodity()
                 {
-                    Id = 3, Name = "Shawn", Email = "shawn@example.com", PhotoPath = "avatar2.png", Department = Dept.YesPizza
+                    Id = 3, Name = "Сицилийская", Email = "shawn@example.com", PhotoPath = "avatar2.png", Department = Dept.YesPizza
                 },
                 new Commodity()
                 {
-                    Id = 4, Name = "Jenifer", Email = "jenifer@example.com", PhotoPath = "avatar3.png", Department = Dept.PizzaMafia
+                    Id = 4, Name = "Гавайская", Email = "jenifer@example.com", PhotoPath = "avatar4.png", Department = Dept.PizzaMafia
                 },
                  new Commodity()
                 {
-                    Id = 5, Name = "Sten", Email = "sten@example.com", Department = Dept.HelloPizza
+                    Id = 5, Name = "Гавайская", Email = "sten@example.com", Department = Dept.HelloPizza
                 }     
             };
         }
