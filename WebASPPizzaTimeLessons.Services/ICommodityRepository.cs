@@ -11,7 +11,7 @@ namespace WebASPPizzaTimeLessons.Services
         Commodity GetCommodity(int id);
         Commodity Update(Commodity updateCommodity);
         Commodity Add(Commodity newCommodity);
-        //Commodity Delete(int id);
+        Commodity Delete(int id);
         //IEnumerable<DeptHeadCount> CommodityCountByDept(Dept? dept);
     }
 }

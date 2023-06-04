@@ -46,6 +46,16 @@ namespace WebASPPizzaTimeLessons.Services
             return newCommodity;
         }
 
+        public Commodity Delete(int id)
+        {
+            Commodity commodityToDelete = _commodityList.FirstOrDefault(x => x.Id == id);
+
+            if (commodityToDelete != null)
+                _commodityList.Remove(commodityToDelete);
+
+            return commodityToDelete;
+        }
+
         public IEnumerable<Commodity> GetAllCommodity()
         {
             return _commodityList;
