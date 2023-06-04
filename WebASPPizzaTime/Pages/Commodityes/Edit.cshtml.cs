@@ -5,19 +5,18 @@ using WebASPPizzaTimeLessons.Services;
 
 namespace WebASPPizzaTime.Pages.Commodityes
 {
-    public class DetailsModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly ICommodityRepository _commodityRepository;
-        // private readonly IWebHostEnvironment _webHostEnvironment;
+        //private readonly IWebHostEnvironment _webHostEnvironment;
 
-
-        public DetailsModel(ICommodityRepository commodityRepository) // IWebHostEnvironment webHostEnvironment
+        public EditModel(ICommodityRepository commodityRepository)
         {
             _commodityRepository = commodityRepository;
            // _webHostEnvironment = webHostEnvironment;
         }
 
-        public Commodity Commodity { get; private set; }
+        public Commodity Commodity { get; set; }
 
         public IActionResult OnGet(int id)
         {
