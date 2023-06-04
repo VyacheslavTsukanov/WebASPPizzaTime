@@ -20,6 +20,7 @@ namespace WebASPPizzaTime.Pages.Commodityes
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [BindProperty]
         public Commodity Commodity { get; set; }
 
 
@@ -32,9 +33,12 @@ namespace WebASPPizzaTime.Pages.Commodityes
         public string Massage { get; set; }
 
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
-            Commodity = _commodityRepository.GetCommodity(id);
+            if (id.HasValue)
+                Commodity = _commodityRepository.GetCommodity(id.Value);
+            else
+                Commodity = new Commodity();
 
             if (Commodity == null)
                 return RedirectToPage("/NotFound");
@@ -42,24 +46,39 @@ namespace WebASPPizzaTime.Pages.Commodityes
             return Page();
         }
 
-        public IActionResult OnPost(Commodity commodity)
+        public IActionResult OnPost()
         {
-            if(Photo != null)
+            if (ModelState.IsValid)
             {
-                if(commodity.PhotoPath != null)
+                if (Photo != null)
                 {
-                    string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", commodity.PhotoPath);
-                    System.IO.File.Delete(filePath);
+                    if (Commodity.PhotoPath != null)
+                    {
+                        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", Commodity.PhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    Commodity.PhotoPath = ProcessUploadedFile();
                 }
 
-                commodity.PhotoPath = ProcessUploadedFile();
+
+                if(Commodity.Id > 0)
+                {
+                    Commodity = _commodityRepository.Update(Commodity);
+                    TempData["SeccessMessage"] = $"Update {Commodity.Name} successful";
+                }
+                else
+                {
+                    Commodity = _commodityRepository.Add(Commodity);
+                    TempData["SeccessMessage"] = $"Adding {Commodity.Name} successful!";
+                }
+
+                return RedirectToPage("Commodityes");
             }
-
-            Commodity = _commodityRepository.Update(commodity);
-
-            TempData["SeccessMessage"] = $"Update {Commodity.Name} successful";
-
-            return RedirectToPage("Commodityes");
+            else
+            {
+                return Page();
+            }
         }
 
         public void OnPostUpdateNotificationPreferences(int id)

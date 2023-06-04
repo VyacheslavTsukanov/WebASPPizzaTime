@@ -1,9 +1,12 @@
 ﻿@page "{id:min(1)?}/{handler?}"
 @model WebASPPizzaTime.Pages.Commodityes.EditModel
 @{
-    ViewData["Title"] = "Edit";
 
     var photoPath = $"/images/{Model.Commodity.PhotoPath ?? "noimage.png"}";
+    var pageTitle = Model.Commodity.Id > 0 ? "Edit" : "Create";
+
+    ViewData["Title"] = pageTitle;
+
 
 }
 
@@ -27,6 +30,8 @@
 </form>
 <hr />
 
+
+<div asp-validation-summary="All" class="text-danger text-center"></div>
 
 <!--Создаём форму редактирования-->
 <form method="post" asp-page-handler="OnPost" class="mt-3" enctype="multipart/form-data">

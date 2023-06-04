@@ -39,6 +39,13 @@ namespace WebASPPizzaTimeLessons.Services
             };
         }
 
+        public Commodity Add(Commodity newCommodity)
+        {
+            newCommodity.Id = _commodityList.Max(x => x.Id) + 1;
+            _commodityList.Add(newCommodity);
+            return newCommodity;
+        }
+
         public IEnumerable<Commodity> GetAllCommodity()
         {
             return _commodityList;
