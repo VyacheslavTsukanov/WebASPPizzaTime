@@ -26,6 +26,12 @@ namespace WebASPPizzaTime.Pages.Commodityes
         [BindProperty]
         public IFormFile Photo { get; set; }
 
+
+        [BindProperty]
+        public bool Notify { get; set; }
+        public string Massage { get; set; }
+
+
         public IActionResult OnGet(int id)
         {
             Commodity = _commodityRepository.GetCommodity(id);
@@ -50,7 +56,24 @@ namespace WebASPPizzaTime.Pages.Commodityes
             }
 
             Commodity = _commodityRepository.Update(commodity);
+
+            TempData["SeccessMessage"] = $"Update {Commodity.Name} successful";
+
             return RedirectToPage("Commodityes");
+        }
+
+        public void OnPostUpdateNotificationPreferences(int id)
+        {
+            if (Notify)
+            {
+                Massage = "Thank you for turning on the notification";
+            }
+            else
+            {
+                Massage = "Your have turned off email notifications";
+            }
+
+            Commodity = _commodityRepository.GetCommodity(id);
         }
 
         private string ProcessUploadedFile()

@@ -6,6 +6,13 @@
 
 <h1>Commodityes</h1>
 
+@if (TempData["SeccessMessage"] != null)
+{
+    <div class="alert alert-success text-center">
+        @TempData["SeccessMessage"];
+    </div>
+}
+
 <div class="row">
     @foreach (var item in Model.Commodityes)
     {
@@ -19,7 +26,7 @@
                         <h3>@item.Name</h3>
                     </div>
 
-                    
+
                     <div class="text-center cardBodyStyle">
                         <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
                     </div>
