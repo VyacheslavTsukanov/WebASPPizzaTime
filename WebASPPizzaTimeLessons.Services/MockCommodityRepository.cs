@@ -48,5 +48,20 @@ namespace WebASPPizzaTimeLessons.Services
         {
             return _commodityList.FirstOrDefault(x => x.Id == id);
         }
+
+        public Commodity Update(Commodity updateCommodity)
+        {
+            Commodity сommodity = _commodityList.FirstOrDefault(x => x.Id == updateCommodity.Id);
+
+            if (сommodity != null)
+            {
+                сommodity.Name = updateCommodity.Name;
+                сommodity.Email = updateCommodity.Email;
+                сommodity.Department = updateCommodity.Department;
+                сommodity.PhotoPath = updateCommodity.PhotoPath;
+            }
+
+            return сommodity;
+        }
     }
 }

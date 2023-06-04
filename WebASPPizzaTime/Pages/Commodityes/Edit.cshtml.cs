@@ -1,5 +1,9 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
+using System.IO;
 using WebASPPizzaTimeLessons.Models;
 using WebASPPizzaTimeLessons.Services;
 
@@ -8,15 +12,19 @@ namespace WebASPPizzaTime.Pages.Commodityes
     public class EditModel : PageModel
     {
         private readonly ICommodityRepository _commodityRepository;
-        //private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public EditModel(ICommodityRepository commodityRepository)
+        public EditModel(ICommodityRepository commodityRepository, IWebHostEnvironment webHostEnvironment)
         {
             _commodityRepository = commodityRepository;
-           // _webHostEnvironment = webHostEnvironment;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public Commodity Commodity { get; set; }
+
+
+        [BindProperty]
+        public IFormFile Photo { get; set; }
 
         public IActionResult OnGet(int id)
         {
@@ -26,6 +34,43 @@ namespace WebASPPizzaTime.Pages.Commodityes
                 return RedirectToPage("/NotFound");
 
             return Page();
+        }
+
+        public IActionResult OnPost(Commodity commodity)
+        {
+            if(Photo != null)
+            {
+                if(commodity.PhotoPath != null)
+                {
+                    string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", commodity.PhotoPath);
+                    System.IO.File.Delete(filePath);
+                }
+
+                commodity.PhotoPath = ProcessUploadedFile();
+            }
+
+            Commodity = _commodityRepository.Update(commodity);
+            return RedirectToPage("Commodityes");
+        }
+
+        private string ProcessUploadedFile()
+        {
+            string uniqueFileName = null;
+
+            if (Photo != null)
+            {
+                
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+
+                using (var fs = new FileStream(filePath, FileMode.Create))
+                {
+                    Photo.CopyTo(fs);
+                };
+            }
+            return uniqueFileName;
         }
     }
 }
