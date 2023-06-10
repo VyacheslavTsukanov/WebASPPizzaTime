@@ -18,7 +18,8 @@
             <label asp-for="Notify" class="form-check-label">
                 Receive email notification when my details change
             </label><br />
-            <button type="submit" class="btn btn-primary text-center">Update Notification Preference</button>
+            <button type="submit" class="btn btn-primary text-center">
+                    Notification Preference</button>
             @if (!string.IsNullOrWhiteSpace(Model.Massage))
             {
                 <div class="alert alert-success">
@@ -101,7 +102,7 @@
                         <div class="col">
                             <div class="card-footer text-center" style="background-color: rgba(0, 0, 0, 0.25);">
                                 <button type="submit" class="btn btn-success buttonShadow">Update</button>
-                                <a asp-page="index" class="btn btn-danger buttonShadow">Cancel</a>
+                                <a asp-page="/Commodityes/Commodityes" class="btn btn-danger buttonShadow">Cancel</a>
                             </div>
                         </div>
                     </div>
